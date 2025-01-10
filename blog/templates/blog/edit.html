@@ -1,0 +1,22 @@
+{% extends "blog/base.html" %}
+{% block body %}
+
+<link rel="stylesheet" type="text/css" href="/static/edit.css">
+
+
+
+<title>入力画面</title>
+
+<form action="/blog/diarysave" method="post" enctype="multipart/form-data">
+
+    <div id="main">
+        <label class="label">ツッコミ</label>
+        <br>
+        <textarea rows="12" cols="100" name="comment"></textarea>
+        <div class="time"></div>
+        <input class="btn1" type="submit" value="  登  録  ">
+    </div>
+
+</form>
+
+{% endblock %}

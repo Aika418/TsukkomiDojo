@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link rel="stylesheet" type="text/css" href="/static/login.css">
+
+
+<title>ログイン画面</title>
+
+<div class="frame">
+  <div class="box0">
+    <img src="/static/loginnoimage.PNG">
+    <h3>ツッコミ道場にログイン</h3>
+
+    {% if status == "user_notfound" %}
+    <p>ユーザーが見つかりません。アカウント作成してください</p>
+    {% elif status == "wrong_password" %}
+    <p>パスワードが間違っています</p>
+    {% elif status == "logout" %}
+    <p>ログアウト完了</p>
+    {% endif %}
+  </div>
+  <form action="/blog/login" method="post">
+    <div class="box1">
+      <label for="text1" id="l_text1">ユーザー名</label>
+      <input id="text1" type="text" name="user_name" placeholder="user name">
+    </div>
+    <div class="box1">
+      <label for="text2" id="l_text2">パスワード</label>
+      <input id="text2" type="password" name="password" placeholder="password">
+    </div>
+    <button class="btn1" type="submit">ログイン</button>
+  </form>
+
+  
+</a>
+
+  <p>
+    <br>
+    <a href="{{ url_for('blog.newcomer') }}">パスワードをお忘れですか？</a>
+　
+    <a href="/blog/newcomer">アカウント作成</a>
+  </p>
+</div>

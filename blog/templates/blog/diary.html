@@ -1,0 +1,29 @@
+{% extends "blog/base.html" %}
+{% block body %}
+
+<link rel="stylesheet" type="text/css" href="/static/diary.css">
+
+
+
+<title>更新画面</title>
+
+<form action="/blog/diaryupdate" method="post" enctype="multipart/form-data">
+
+    <div id="main">
+        <input id="ID" type="text" name="ID" value="{{diary.id}}">
+        
+        
+        <label class="label">ツッコミ</label>
+        <br>
+        <textarea rows="12" cols="100" name="comment">{{diary.comment}}</textarea>
+        <div class="time">{{diary.date.strftime("%Y/%m/%d %H:%M")}}</div>
+
+        {% if name == diary.user %}
+        <input class="btn1" type="submit" value="  更  新  ">
+        <button class="btn1" id="btn2" type="button" onclick="location.href='/blog/delete/{{diary.id}}'">  削  除  </button>
+        {% endif %}
+    </div>
+
+</form>
+
+{% endblock %}

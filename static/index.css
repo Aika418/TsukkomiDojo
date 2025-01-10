@@ -1,0 +1,31 @@
+#main{
+    width: 100%; /*幅*/
+    margin: auto; /*中央寄せ*/
+    max-width: 800px; /*最大の幅*/
+    padding:60px 0; /*範囲内の余白（上下、左右）*/
+}
+
+.table{
+    border: outset 2px; /*外枠を作る（スタイル、太さ）*/
+    padding:10px 20px; /*範囲内の余白（上下、左右）*/
+    margin: 10px 15px; /*範囲外の余白（上下、左右）*/
+}
+
+img{
+    float: right; /*右に寄せる*/
+    width: 300px; /*画像サイズを固定*/
+}
+
+@media screen and (max-width: 600px) {
+    img{
+        width: 100%; /*スマホなどの時の画像サイズ*/
+    }
+}
+
+.time{
+    clear: both; /*「float」を解除*/
+}
+
+.update{
+    display: none; /*非表示にする*/
+}

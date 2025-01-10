@@ -1,0 +1,115 @@
+@media (max-width: 600px) {
+    p {
+        color: red;
+        font-size: 80%;
+    }
+    
+}
+
+body{
+    background-image: url('doujou.jpg');  /* 背景画像を設定 */
+    background-size: cover;  /* 画像が画面全体をカバーするようにリサイズ */
+    background-position: center;  /* 画像を中央に配置 */
+    background-repeat: no-repeat;  /* 画像が繰り返されないように設定 */
+    background-attachment: fixed;  /* スクロールしても背景が固定される */
+}
+
+
+.frame{
+    width: 90%; /*幅元々90%*/
+    margin: 30px auto; /*上の位置と中央寄せ*/
+    max-width: 600px; /*最大の幅600px*/
+  
+}
+
+img{
+    
+    width: 500px; /*ロゴ幅*元々80px/
+    height: auto; /*縦横比を維持する高さを自動計算*/
+}
+
+.box0{
+    text-align: center; /*中央寄せ*/
+}
+
+.box1{
+    width: 100%; /*幅*/
+    height: 60px; /*高さ*/
+    margin: 15px 0px; /*領域外のスペース*/
+    background-color: #eee; /*背景色*/
+    border-bottom: 2px solid #c2c2c2; /*text1の下線*/
+    
+}
+
+#l_text1{
+    display: block; /*要素の表示形式*/
+    font-size: 14px; /*文字の大きさ*/
+    padding: 5px 10px; /*領域内のスペース*/
+}
+
+#text1{
+    font-size: 18px; /*文字の大きさ*/
+    padding: 0 0 7px 10px; /*ボックスを大きくする*/
+    width: 100%; /*幅*/
+    background-color: #eee; /*背景色*/
+    border: none; /*外枠の線*/
+    outline: none; /*外枠の線*/
+    border-bottom: 2px solid #c2c2c2; /*text1の下線*/
+    box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+}
+
+#text1:focus{
+    border-bottom: 2px solid #1B73BA; /*下線の太さと色*/
+}
+
+#l_text2{
+    display: block; /*要素の表示形式*/
+    font-size: 13px; /*文字の大きさ*/
+    padding: 5px 10px; /*領域内のスペース*/
+}
+
+#text2{
+    font-size: 18px; /*文字の大きさ*/
+    padding: 2px 0 7px 10px; /*ボックスを大きくする*/
+    width: 100%; /*幅*/
+    background-color: #eee; /*背景色*/
+    border: none; /*外枠の線*/
+    outline: none; /*外枠の線*/
+    border-bottom: 2px solid #c2c2c2; /*text1の下線*/
+    box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+}
+
+#text2:focus{
+    border-bottom: 2px solid #1B73BA; /*下線の太さと色*/
+}
+
+.btn1{
+    position:relative; /*相対位置（topのために必要）*/
+    width:100%; /*幅*/
+    height:50px; /*高さ*/
+    top: 10px; /*上の位置*/
+    color:#fff; /*文字の色*/
+    border:none; /*外枠*/
+    -webkit-border-radius: 25px;
+       -moz-border-radius: 25px;
+            border-radius: 25px; /*角の半径*/
+    background:#1B73BA; /*背景色*/
+    display: block; /*要素の表示形式*/
+    -webkit-appearance: none;
+    outline: 0; /*外枠（押した後）*/
+    cursor: pointer; /*カーソル（指のかたち）*/
+}
+.btn1:hover{
+    opacity: 0.8; /*透明度*/
+}
+
+a {
+    text-decoration: none; /*下線を消す*/
+}
+a:hover{
+    text-decoration: underline; /*下線を引く*/
+}
+
+p {
+    text-align: center; /*中央寄せ*/
+}

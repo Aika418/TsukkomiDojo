@@ -1,0 +1,35 @@
+{% extends "blog/base.html" %}
+{% block body %}
+
+<link rel="stylesheet" type="text/css" href="/static/index.css">
+
+<title>ホーム画面</title>
+
+<div id="main">
+    {% for diary in all_diary[::-1] %}
+        {% if search == "" or search in diary.user 
+            or search in diary.comment %}
+
+    <form action="/blog/diary/{{diary.id}}">
+        <label id="menu" for="{{diary.id}}">
+
+    <div class="table">
+        {% if diary.user != "" %}
+        <h3> ＠{{diary.user}}</h3>
+        {% else %}
+        <h3></h3>
+        {% endif %}
+        
+        <p>{{diary.comment}}</p>
+        <div class="time">{{diary.date.strftime("%Y/%m/%d %H:%M")}}</div>
+    </div>
+
+        </label>
+        <input type="submit" id="{{diary.id}}" class="update">
+    </form>
+
+        {% endif %}
+    {% endfor %}
+</div>
+
+{% endblock %}

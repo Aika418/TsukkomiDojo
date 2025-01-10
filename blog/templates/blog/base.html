@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link rel="stylesheet" type="text/css" href="/static/base.css">
+
+<body>
+    <header>
+
+        
+        {% if name %}
+        <h3 id="user_name">ようこそ {{name}} さん</h3>
+        {% else %}
+        <h3 id="user_name">ログインしてください</h3>
+        {% endif %}
+
+        <div id="search1">
+        <form action="/blog/search" method="post">
+            <input id="search2" type="text" name="search">
+            <input class="btn2" type="submit" value="検  索">
+        </form>
+        </div>
+        
+
+        <div id ="c">
+        <li><a href="/blog/logout">ログアウト</a></li>
+        </div>
+
+    </header>
+
+
+{% block body %}{% endblock %}
+
+
+    <footer>
+        <ul>
+            <li><a href="/blog">ホーム</a></li>
+            <li>
+            <span onclick="document.getElementById('search1').style.display = 'block'; document.getElementById('search2').focus();">
+            検　索</span>
+            </li>
+            <li><a href="/blog/create">ツッコむ</a></li>
+            <li><a href="/blog/mypage">マイページ</a></li>
+            
+        </ul>
+        
+    </footer>
+</body>

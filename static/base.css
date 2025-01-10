@@ -1,0 +1,121 @@
+header{
+   position: fixed; /*これが元々あった。　絶対位置で固定*/
+   /* position: relative; /*親要素を相対位置に固定*/
+    top: 0px; /*上に配置*/
+    left: 0px; /*左の隙間をなくす*/
+    padding: 0px 30px; /*範囲内の余白（上下、左右）*/
+    width: 100%; /*幅*/
+    height: 60px; /*高さ*/
+    background-image: url("mokume.jpg");
+    /*画像を背景に指定*/
+}
+
+#user_name{
+    position: absolute; /*絶対位置で表示*/
+    margin: 20px 0; /*範囲外の余白*/
+}
+
+#search1{
+    display: none; /*非表示にする*/
+    position: absolute; /*絶対位置で表示*/
+    left: 0;
+    right: 0;
+    width: 90%; /*幅*/
+    margin: 10px auto; /*中央寄せ*/
+    max-width: 700px; /*最大の幅*/
+}
+
+#search2{
+    padding: 8px; /*範囲内の余白*/
+    width: calc(100% - 200px); /*幅*/
+    font-size: 18px; /*文字の大きさ*/
+    background-color: white; /*背景色*/
+}
+
+.btn2{
+    padding: 5px 30px; /*余白*/
+    color:#fff; /*文字の色*/
+    font-size: 16px; /*文字のサイズ*/
+    text-align: center; /*文字の位置*/
+    background:#1B73BA; /*背景色*/
+    border-radius: 10px; /*角の半径*/
+    cursor: pointer; /*カーソル（指のかたち）*/
+}
+
+.btn2:hover{
+    opacity: 0.8; /*透明度*/
+}
+
+
+/*ログアウトボタンを右上に配置する*/
+#c {
+    position: absolute;/*絶対位置（rightのために必要）*/
+    right: 100px;  /* 右に配置 */
+    top: 50%;  /* 真ん中あたりに配置（調整可能）*/
+    transform: translateY(-50%);  /* 50%調整でちょうど中央に */
+}
+
+
+.menu_box{
+    margin: 30px 60px 0 calc(100% - 180px); /*範囲外の余白*/
+    text-align: right; /*右に寄せる*/
+}
+
+#toggle{
+    display: none; /*非表示にする*/
+}
+
+.dropdown_menu{
+    display: none; /*非表示にする*/
+}
+
+/* .menu_box:hover .dropdown_menu{ */
+#toggle:checked+.dropdown_menu{
+    display: block; /*リストを表示する*/
+}
+
+.dropdown_menu li{
+    display: block; /*要素をインライン表示にする*/
+    width: 120px; /*幅*/
+    text-align: center; /*中央に表示する*/
+    background-color: white; /*背景色*/
+    border: outset 2px; /*外枠を作る（スタイル、太さ）*/
+    cursor: pointer; /*カーソル（指のかたち）*/
+}
+
+footer{
+    position: fixed; /*絶対位置で固定*/
+    bottom: 0px; /*下に配置*/
+    left: 0px; /*左の隙間をなくす*/
+    width: 100%; /*幅*/
+    height: 60px; /*高さ*/
+    font-weight: bold; /*文字を太字にする*/
+    text-align: center; /*中央に表示する*/
+    background-image: url("tatami_back.png");
+    /*画像を背景に指定*/
+}
+
+ul{
+    margin: 0; /*上の余白をなくすため*/
+    padding: 5px 0; /*左の余白をなくすため*/
+}
+
+li{
+    display: inline-block; /*要素をインライン表示にする*/
+    width: 120px; /*幅*/
+    text-align: center; /*中央に表示する*/
+    border: outset 2px; /*外枠を作る（スタイル、太さ）*/
+    cursor: pointer; /*カーソル（指のかたち）*/
+}
+
+a {
+    color: #000; /*文字の色*/
+    text-decoration: none; /*下線を消す*/
+}
+
+@media screen and (max-width: 600px) {
+    li{
+        width: 80px; /*スマホなどの時のボタン幅*/
+    }
+}
+
