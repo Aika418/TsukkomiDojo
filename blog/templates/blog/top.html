@@ -9,14 +9,14 @@
 <div class="frame">
   <div class="box0">
     <img src="/static/loginnoimage.PNG">
-    <h3>ツッコミ道場にログイン</h3>
+    <h3>ツッコミ道場に入門</h3>
 
     {% if status == "user_notfound" %}
     <p>ユーザーが見つかりません。アカウント作成してください</p>
     {% elif status == "wrong_password" %}
     <p>パスワードが間違っています</p>
     {% elif status == "logout" %}
-    <p>ログアウト完了</p>
+    <p>退場完了</p>
     {% endif %}
   </div>
   <form action="/blog/login" method="post">
@@ -28,7 +28,7 @@
       <label for="text2" id="l_text2">パスワード</label>
       <input id="text2" type="password" name="password" placeholder="password">
     </div>
-    <button class="btn1" type="submit">ログイン</button>
+    <button class="btn1" type="submit">入門</button>
   </form>
 
   
