@@ -24,6 +24,41 @@
         {% endif %}
     </div>
 
+    <div class="post-container">
+        {% for post in posts %}
+        <div class="post" id="post-{{ post.id }}">
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.content }}</p>
+            <button class="like-button" id="likeButton-{{ post.id }}">
+                <span class="heart">❤️</span> いいね
+            </button>
+            <div class="like-count" id="likeCount-{{ post.id }}">{{ post.like_count }}</div>
+        </div>
+        {% endfor %}
+    </div>
 </form>
+
+    <script>
+        // 投稿ごとにいいねボタンのクリックを処理
+        document.querySelectorAll('.like-button').forEach(button => {
+            button.addEventListener('click', function () {
+                const postId = this.id.replace('likeButton-', '');  // 投稿IDを取得
+    
+                // いいねをサーバーに送信
+                fetch(`/like/${postId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    const likeCount = document.getElementById(`likeCount-${postId}`);
+                    likeCount.textContent = data.like_count;  // 更新されたいいね数を表示
+                })
+                .catch(error => console.error('Error:', error));
+            });
+        });
+    </script>
 
 {% endblock %}
