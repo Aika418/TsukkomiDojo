@@ -5,7 +5,7 @@ header{
     padding:0px 30px; /*範囲内の余白（上下、左右）*/
     width: 100%; /*幅*/
     height: 60px; /*高さ*/
-    background-image: url("back_image.jpg");
+    background-image: url("mokume.jpg");
     /*画像を背景に指定*/
 }
 
@@ -85,7 +85,7 @@ footer{
     height: 60px; /*高さ*/
     font-weight: bold; /*文字を太字にする*/
     text-align: center; /*中央に表示する*/
-    background-image: url("back_image.jpg");
+    background-image: url("tatami_back.png");
     /*画像を背景に指定*/
 }
 
