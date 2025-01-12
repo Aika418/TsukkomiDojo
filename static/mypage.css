@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #f0f0f0;
+  }
+  
+  .like-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .like-button {
+    background-color: #ff007f;
+    color: white;
+    font-size: 2rem;
+    border: none;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.7);
+    transition: all 0.3s ease;
+  }
+  
+  .like-button:hover {
+    transform: scale(1.1);
+    background-color: #ff1493;
+  }
+  
+  .heart {
+    font-size: 3rem;
+    animation: bounce 0.5s ease infinite;
+  }
+  
+  
+  @keyframes bounce { 
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  .like-count {
+    font-size: 2rem;
+    margin-top: 20px;
+    color: #333;
+  }
+  
+  @keyframes countAnimation {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.2); }
+  }
+  
+  .count-animation {
+    animation: countAnimation 0.3s ease-out;
+  }
+  
