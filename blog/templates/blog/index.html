@@ -32,4 +32,61 @@
     {% endfor %}
 </div>
 
+
+<!--いいねをホームページからマイページに飛ばしたい-->
+
+<body>
+
+    <div class="like-container">
+      <!-- いいねボタン -->
+      <button class="like-button" id="likeButton">
+        <span class="heart">❤️</span>
+      </button>
+  
+      <!-- いいねカウント -->
+      <div class="like-count" id="likeCount">0</div>
+  
+      <!-- マイページリンク -->
+      <br>
+    </div>
+  
+    <script>
+      const likeButton = document.getElementById('likeButton'); //いいねボタン
+      const likeCount = document.getElementById('likeCount'); //いいね数
+      
+      // ローカルストレージからカウントを取得　→ ブラウザにデータを永続的に保存できる。
+      let count = localStorage.getItem('likeCount') ? parseInt(localStorage.getItem('likeCount')) : 0; //ブラウザのローカルストレージに保存
+      likeCount.textContent = count; //それをcount変数に格納
+      likeButton.addEventListener('click', () => { //いいねボタンクリックされた時の実行↓
+      count++;
+      likeCount.textContent = count;
+    
+      // カウントをローカルストレージに保存
+      localStorage.setItem('likeCount', count);
+
+      likeCount.classList.add('count-animation');//count-animationクラスをいいね数の要素に追加
+      setTimeout(() => {
+        likeCount.classList.remove('count-animation');
+      }, 300);
+    });
+  </script>
+
+</body>
+
+<!--投稿リストの表示-->
+{% for post in posts %}
+  <div class="post">
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.content }}</p>
+    
+    <!-- 各投稿に対するいいねボタン -->
+    <form action="{{ url_for('like_post', post_id=post.id) }}" method="POST">
+      <button type="submit">いいね</button>
+    </form>
+  </div>
+{% endfor %}
+
+
+
+
 {% endblock %}
