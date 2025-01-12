@@ -1,9 +1,30 @@
 {% extends "blog/base.html" %}
 {% block body %}
 
-<link rel="stylesheet" type="text/css" href="/static/likes.css">
+<link rel="stylesheet" type="text/css" href="/static/mypage.css">
 
-<title>マイページ</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>マイページ</title>
+  
+  </head>
+  <body>
+  
+    <div class="mypage-container">
+      <h1>ツッコミレベル</h1>
+      <p>あなたのいいね数: <span id="myLikeCount">0</span></p>
+      <br>
+    </div>
+  
+    <script>
+      // ローカルストレージからいいねカウントを取得
+      const myLikeCount = document.getElementById('myLikeCount');
+      let count = localStorage.getItem('likeCount') ? localStorage.getItem('likeCount') : 0;
+      myLikeCount.textContent = count;
+    </script>
+
+</body>
 
 
 
