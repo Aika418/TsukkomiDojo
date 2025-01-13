@@ -9,84 +9,28 @@
     {% for diary in all_diary[::-1] %}
         {% if search == "" or search in diary.user 
             or search in diary.comment %}
-
     <form action="/blog/diary/{{diary.id}}">
         <label id="menu" for="{{diary.id}}">
-
-    <div class="table">
-        {% if diary.user != "" %}
-        <h3> ＠{{diary.user}}</h3>
-        {% else %}
-        <h3></h3>
-        {% endif %}
-        
-        <p>{{diary.comment}}</p>
-        <div class="time">{{diary.date.strftime("%Y/%m/%d %H:%M")}}</div>
-    </div>
-
+            <div class="table">
+                {% if diary.user != "" %}
+                <h3> ＠{{diary.user}}</h3>
+                {% else %}
+                <h3></h3>
+                {% endif %}
+                
+                <p>{{diary.comment}}</p>
+                <div class="time">{{diary.date.strftime("%Y/%m/%d %H:%M")}}</div>
+            </div>
         </label>
         <input type="submit" id="{{diary.id}}" class="update">
     </form>
 
+    <!-- いいねボタン -->
+    <form action="/blog/like/{{diary.id}}" method="post">
+        <button type="submit">👍 いいね ({{diary.likes}})</button>
+    </form>
         {% endif %}
     {% endfor %}
 </div>
-
-
-<!--いいねをホームページからマイページに飛ばしたい-->
-
-<body>
-
-    <div class="like-container">
-      <!-- いいねボタン -->
-      <button class="like-button" id="likeButton">
-        <span class="heart">❤️</span>
-      </button>
-  
-      <!-- いいねカウント -->
-      <div class="like-count" id="likeCount">0</div>
-  
-      <!-- マイページリンク -->
-      <br>
-    </div>
-  
-    <script>
-      const likeButton = document.getElementById('likeButton'); //いいねボタン
-      const likeCount = document.getElementById('likeCount'); //いいね数
-      
-      // ローカルストレージからカウントを取得　→ ブラウザにデータを永続的に保存できる。
-      let count = localStorage.getItem('likeCount') ? parseInt(localStorage.getItem('likeCount')) : 0; //ブラウザのローカルストレージに保存
-      likeCount.textContent = count; //それをcount変数に格納
-      likeButton.addEventListener('click', () => { //いいねボタンクリックされた時の実行↓
-      count++;
-      likeCount.textContent = count;
-    
-      // カウントをローカルストレージに保存
-      localStorage.setItem('likeCount', count);
-
-      likeCount.classList.add('count-animation');//count-animationクラスをいいね数の要素に追加
-      setTimeout(() => {
-        likeCount.classList.remove('count-animation');
-      }, 300);
-    });
-  </script>
-
-</body>
-
-<!--投稿リストの表示-->
-{% for post in posts %}
-  <div class="post">
-    <h2>{{ post.title }}</h2>
-    <p>{{ post.content }}</p>
-    
-    <!-- 各投稿に対するいいねボタン -->
-    <form action="{{ url_for('like_post', post_id=post.id) }}" method="POST">
-      <button type="submit">いいね</button>
-    </form>
-  </div>
-{% endfor %}
-
-
-
 
 {% endblock %}

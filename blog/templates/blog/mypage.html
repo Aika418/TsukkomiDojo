@@ -3,29 +3,22 @@
 
 <link rel="stylesheet" type="text/css" href="/static/mypage.css">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>マイページ</title>
-  
-  </head>
-  <body>
-  
-    <div class="mypage-container">
-      <h1>ツッコミレベル</h1>
-      <p>あなたのいいね数: <span id="myLikeCount">0</span></p>
-      <br>
+<title>マイページ</title>
+
+<h2>{{ name }}さんのマイページ</h2>
+
+<h3>いいねした投稿</h3>
+<div id="liked-posts">
+    {% for diary in liked_posts %}
+    <div class="table">
+        <h3>＠{{ diary.user }}</h3>
+        <p>{{ diary.comment }}</p>
+        <div class="time">{{ diary.date.strftime("%Y/%m/%d %H:%M") }}</div>
+        <form action="/blog/diary/{{ diary.id }}">
+            <button type="submit">詳細を見る</button>
+        </form>
     </div>
-  
-    <script>
-      // ローカルストレージからいいねカウントを取得
-      const myLikeCount = document.getElementById('myLikeCount');
-      let count = localStorage.getItem('likeCount') ? localStorage.getItem('likeCount') : 0;
-      myLikeCount.textContent = count;
-    </script>
-
-</body>
-
-
+    {% endfor %}
+</div>
 
 {% endblock %}

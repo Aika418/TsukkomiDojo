@@ -29,3 +29,16 @@ img{
 .update{
     display: none; /*非表示にする*/
 }
+
+button {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #ddd;
+}

@@ -17,7 +17,42 @@ from blog.models.database import db_session
 
 from werkzeug.utils import secure_filename
 
+@app.route('/like/<ID>', methods=['post'])
+def like(ID):
+    if "user_name" not in session:
+        return redirect(url_for("blog.top", status="not_logged_in"))
+    
+    user_name = session["user_name"]
+    user = User.query.filter_by(user_name=user_name).first()
+    diary = WikiContent.query.get(ID)
 
+    if not user or not diary:
+        return redirect(url_for("blog.index"))
+
+    if diary in user.liked_posts:
+        # いいね解除
+        user.liked_posts.remove(diary)
+        diary.likes -= 1
+    else:
+        # いいね追加
+        user.liked_posts.append(diary)
+        diary.likes += 1
+
+    db_session.commit()
+    return redirect(url_for("blog.index"))
+
+
+
+@app.route("/mypage")
+def mypage():
+    # セッションからユーザー名を取得
+    name = session.get("user_name", "")  # セッションがない場合は空文字を返す
+    status = request.args.get("status")
+
+    user = User.query.filter_by(user_name=name).first()
+    liked_posts = user.liked_posts if user else []
+
+    return render_template("blog/mypage.html", name=name, status=status, liked_posts=liked_posts)
 
 
 #「/」へアクセスがあった場合
@@ -160,12 +195,6 @@ def top():
     status = request.args.get("status")
     return render_template("blog/top.html",status=status)
 
-@app.route("/mypage")
-def mypage():
-    # セッションからユーザー名を取得
-    name = session.get("user_name", "")  # セッションがない場合は空文字を返す
-    status = request.args.get("status")
-    return render_template("blog/mypage.html", name=name, status=status)
 
 
 
@@ -174,7 +203,5 @@ def mypage():
 def newcomer():
     status = request.args.get("status")
     return render_template("blog/newcomer.html",status=status)
-
-
 
 
